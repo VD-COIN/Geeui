@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DART 🎯</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .logo {
+            font-size: 3em;
+            font-weight: bold;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">DART 🎯</div>
+    <script>
+        setTimeout(() => {
+            const isReturningUser = localStorage.getItem('userId'); // Check if userId is stored
+            window.location.href = isReturningUser ? 'insert.html' : 'sign-in.html';
+        }, 7000);
+    </script>
+</body>
+</html>

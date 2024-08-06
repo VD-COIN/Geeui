@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5em;
+        }
+        .menu {
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+        .sidebar {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 100%;
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        main {
+            flex: 1;
+            padding: 20px;
+            background-color: white;
+            margin-left: 200px;
+        }
+        input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #schoolData {
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.style.display = sidebar.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function searchSchool() {
+            const schoolId = document.getElementById('schoolId').value;
+            if (schoolId) {
+                // Replace this section with Firebase or actual data retrieval logic
+                const schoolData = {
+                    profilePicture: 'path/to/profile-picture.jpg',
+                    schoolName: 'Sample School',
+                    schoolAddress: '123 School Street',
+                    phoneNumber: '123-456-7890'
+                };
+
+                document.getElementById('schoolData').innerHTML = `
+                    <img src="${schoolData.profilePicture}" alt="School Profile Picture" style="width: 100%; max-width: 200px;">
+                    <p>School Name: ${schoolData.schoolName}</p>
+                    <p>School Address: ${schoolData.schoolAddress}</p>
+                    <p>Phone Number: ${schoolData.phoneNumber}</p>
+                `;
+            } else {
+                alert('Please enter a school ID');
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">DART 🎯</div>
+        <div class="menu" onclick="toggleSidebar()">☰</div>
+    </header>
+    <div class="sidebar">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="work.html">Work with us</a></li>
+        </ul>
+    </div>
+    <main>
+        <div>
+            <input type="text" id="schoolId" placeholder="Enter School ID">
+            <button onclick="searchSchool()">Search</button>
+        </div>
+        <div id="schoolData">
+            <!-- School profile picture and details will be displayed here -->
+        </div>
+        <div>
+            <button onclick="window.location.href='registration.html'">Registration</button>
+            <button onclick="window.location.href='classes.html'">Classes</button>
+            <button onclick="window.location.href='others.html'">Others</button>
+        </div>
+    </main>
+</body>
+</html>
